@@ -1,0 +1,70 @@
+version: "3.2"
+
+services:
+    tweet-api:
+        container_name: tweet-api
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        ports:
+            - "5000:5000"
+        restart: 'on-failure'
+        depends_on: ["grafana"]
+    prometheus:
+        image: prom/prometheus:latest
+        container_name: prometheus
+        restart: always
+        volumes: 
+            - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+        command: 
+            - --config.file=/etc/prometheus/prometheus.yml
+        ports:
+            - '9090:9090'
+    grafana:
+        image: grafana/grafana:latest
+        container_name: grafana
+        restart: always
+        volumes: 
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+            - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+            - ./grafana/provisioning:/etc/grafana/provisioning
+            - ./grafana/data:/var/lib/grafana
+        depends_on: 
+            - prometheus
+        ports: 
+            - '3000:3000'
+    elasticsearch:
+        image: elasticsearch:8.2.0
+        container_name: elasticsearch
+        restart: always
+        volumes:
+            - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+        environment:
+            LS_JAVA_OPTS: "-Xmx256m -Xms256m" 
+            discovery.type: single-node
+        ports: 
+            - '9200:9200'
+    logstash:
+        image: logstash:8.2.0
+        container_name: logstash
+        restart: always
+        links: 
+            - elasticsearch:elasticsearch
+            - kafka:kafka
+        depends_on: [ "kafka", "elasticsearch"]
+        volumes: 
+            - ./logstash/:/logstash_dir
+        command: logstash -f /logstash_dir/logstash.conf
+        ports: 
+            - '9600:9600'
+    kibana:
+        image: kibana:8.2.0
+        container_name: kibana
+        restart: always
+        environment: 
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+        depends_on: 
+            - elasticsearch
+        ports: 
+            - '5601:5601'
