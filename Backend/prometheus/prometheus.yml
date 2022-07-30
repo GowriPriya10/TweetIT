@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+- job_name: 'tweet-api'
+  honor_labels: true
+  static_configs:
+    - targets: ['tweet-api:5000']
