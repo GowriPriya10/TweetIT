@@ -1,0 +1,233 @@
+body {
+	font-family: 'Varela Round', sans-serif;
+}
+.modal-login {
+    margin: 15px;
+	width: 350px;
+}
+.modal-login .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+}
+.modal-login .modal-header {
+	border-bottom: none;
+	position: relative;
+	justify-content: center;
+}
+.modal-login .close {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+}
+.modal-login h4 {
+	color: #636363;
+	text-align: center;
+	font-size: 26px;
+	margin-top: 0;
+}
+.modal-login .modal-content {
+	color: #999;
+	border-radius: 1px;
+	margin: 25px;
+	background: #fff;
+	border: 1px solid #f3f3f3;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 25px;
+    width: 30%;
+}
+.modal-login .form-group {
+	margin-bottom: 20px;
+}
+.modal-login label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.modal-login .form-control {
+	min-height: 38px;
+	padding-left: 5px;
+	box-shadow: none !important;
+	border-width: 0 0 1px 0;
+	border-radius: 0;
+}
+.modal-login .form-control:focus {
+	border-color: #ccc;
+}
+.modal-login .input-group-addon {
+	max-width: 42px;
+	text-align: center;
+	background: none;
+	border-bottom: 1px solid #ced4da;
+	padding-right: 5px;
+	border-radius: 0;
+}
+.modal-login .btn, .modal-login .btn:active {        
+	font-size: 16px;
+	font-weight: bold;
+	background: #19aa8d !important;
+	border-radius: 3px;
+	border: none;
+	min-width: 140px;
+}
+.modal-login .btn:hover, .modal-login .btn:focus {
+	background: #179b81 !important;
+}
+.modal-login .hint-text {
+	text-align: center;
+	padding-top: 5px;
+	font-size: 13px;
+}
+.modal-login .modal-footer {
+	color: #999;
+	border-color: #dee4e7;
+	text-align: center;
+	margin: 0 -25px -25px;
+	font-size: 13px;
+	justify-content: center;
+}
+.modal-login a {
+	color: #fff;
+	text-decoration: underline;
+}
+.modal-login a:hover {
+	text-decoration: none;
+}
+.modal-login a {
+	color: #19aa8d;
+	text-decoration: none;
+}	
+.modal-login a:hover {
+	text-decoration: underline;
+}
+.modal-login .fa {
+	font-size: 21px;
+	position: relative;
+	top: 6px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #19aa8d;
+    color: white;
+    text-align: left;
+    min-height: 40px;
+    font-size: medium;
+    text-indent: 2px;
+}
+
+.bg-tweet {
+	background-color: #19aa8d;
+}
+
+.card {
+	background-color: #fff;
+	color: #333;
+	border-radius: 15px;
+	padding: 40px 50px;
+	margin: 20px 0;
+	position: relative;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row
+}
+
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+.row {
+display: flex;
+}
+
+.column {
+flex: 50%;
+float: left;
+width: 50%;
+}
+
+.tweet-body {
+display: flex;
+flex-direction: column;
+width: auto;
+height: 200px;
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+margin-bottom: 20px;
+}
+
+.inner-body {
+display: flex;
+flex-direction: row;
+}
+.picture {
+margin-left: 24px;
+margin-top: 17px;
+border-radius: 50%;
+width: 48px;
+height: 48px;
+}
+
+.name {
+display: flex;
+flex-direction: row;
+margin-left: 15px;
+margin-top: 19px;
+min-width: 85px;
+height: 17px;
+font-family: HelveticaNeue;
+font-size: 14px;
+font-weight: 500;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: -0.6px;
+}
+
+.handle {
+margin-left: 10px;
+margin-top: 19px;
+min-width: 128px;
+height: 16px;
+font-family: HelveticaNeue;
+font-size: 14px;
+font-weight: normal;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: -0.6px;
+color: #75797d;
+}
+
+.tweet {
+margin-left: 15px;
+margin-top: 35px;
+width: 445px;
+height: 60px;
+font-family: HelveticaNeue;
+font-size: 20px;
+font-weight: 300;
+font-style: normal;
+font-stretch: normal;
+line-height: normal;
+letter-spacing: -0.6px;
+color: #0a0a0a;
+}
+
+.like:hover{
+	background-color: #179b81;
+}
+
+.reply{
+cursor : pointer;
+}
+
+.modal-90w{
+	width: fit-content;
+	max-width:fit-content !important;
+}
